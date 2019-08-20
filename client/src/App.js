@@ -20,8 +20,17 @@ const App = () => {
 
      {/*: tells react router to parse out that portion of the url and give it to me as a value inside of the 
           params object inside of match */}
-     <Route path = "/movies/:id" component = {Movie}/>
-
+     <Route path = "/movies/:id"                     
+                    render = {(props) => <Movie 
+                                          addToSavedList = {addToSavedList} //stretch
+                                          {...props}//using this spread operator still gives us history, location, and match props
+                                          /*history = {props.history} 
+                                          location = {props.location}
+                                          match = {props.match}*/
+                                            
+                                          /> }
+                    
+    />
     </div>
   );
 };
